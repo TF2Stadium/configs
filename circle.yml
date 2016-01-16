@@ -6,8 +6,10 @@ deployment:
   master:
     branch: master
     commands:
-      - rsync -rl -e "ssh -p $SSH_PORT" * $BACKEND_USER@tf2stadium.com:$BACKEND_DEPLOY_PATH_PROD
+      - cd ..
+      - rsync -rl -e "ssh -p $SSH_PORT" configs/* $BACKEND_USER@tf2stadium.com:$BACKEND_DEPLOY_PATH_PROD
   dev:
     branch: dev
     commands:
-      - rsync -rl -e "ssh -p $SSH_PORT" * $BACKEND_USER@tf2stadium.com:$BACKEND_DEPLOY_PATH_DEV
+      - cd ..
+      - rsync -rl -e "ssh -p $SSH_PORT" configs/* $BACKEND_USER@tf2stadium.com:$BACKEND_DEPLOY_PATH_DEV
