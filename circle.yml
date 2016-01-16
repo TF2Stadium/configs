@@ -10,6 +10,4 @@ deployment:
   dev:
     branch: dev
     commands:
-      - mkdir binaries
-      - mv configs binaries/configs
       - rsync -rl -e "ssh -p $SSH_PORT" * $BACKEND_USER@tf2stadium.com:$BACKEND_DEPLOY_PATH_DEV
